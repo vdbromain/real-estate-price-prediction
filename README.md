@@ -4,6 +4,9 @@
 
 Finished and not maintained anymore
 
+1. Data_acquisition
+`
+
 ## prerequises
 
 Python 3.11.1 64-bit
@@ -297,3 +300,50 @@ Save the data as a csv file of this shape
 | ...    | ...     | ...     | ...    | ...             | ... | ...     | ...         |
 | id n-1 | None    | None    | 54000  | 5               | ... | 1000    | Maison      |
 | id n   | True    | False   | 1000   | 85              | ... | 1010    | Bugalow     |
+
+
+2. Data_analysis
+
+## prerequises
+
+Python 3.9.6 64-bit
+
+Tested on Mac Ventura 13.1
+
+Libraries required 
+* Pandas
+* Numpy
+* Matplotlib
+
+###First Part : Cleaning the data
+
+1) Importing the dataset without blankspaces before or after the data
+2) Droping the duplicates in the dataset
+3) Managing the empty cells in the dataset
+4) Converting the data in the correct format for them to be used later
+5) Creating 2 differents datasets one with all the renting buildings and the other with all the selling buildings
+6) From those 2 datasets, I sorted the renting house in one new dataset and the selling house in another new one. I did the same for the appartments. The renting appartments and "rez-de-chaussee" in one new dataset and the selling appartments and "rez-de-chaussee" in one new dataset.
+7) From those 4 new datasets I calculated the price per square meter for each and the price per bedrooms
+
+###Second Part : Analysing the data
+
+1) Creating a function called "how_many_columns_rows_df" to give us the number of rows and columns of a given dataframe
+2) Calculating the correlations between the living area, the number of rooms, the price per square m, the price per bedroom and the price for renting appartments, renting houses, selling apprtements and selling houses.
+3) Plotting each of those correlations for each dataset to see the outliers
+4) Deleting the outliers
+5) Defining a function to extract a range of zipcode given to this function from one defined dataframe with a give column name in which the zipcode are. This function is called "taking_zip_code_desired_from_df". It returns a new dataframe with the given zipcode in it.
+6) Defining the function to calcul the min, max, mean for one province to rent (by default) or to buy. This function is called "min_max_mean_df". It returns a dictionnary with the province's name and the mean value for the defined column name.
+7) Using the 2 functions above ("taking_zip_code_desired_from_df" and "min_max_mean_df" to create a dataframe for each belgian province and calculating for each of them using "min_max_mean_df" function the min, max and mean.
+8) Plotting the correlation between Price by square m and the renting price for renting appartment in each belgian province to be able to delete the "strange" (extrem) values for some province.
+9) Collecting the average square m price for renting appartment with the name's province in a dictionnary for each province and store this little dict in a main one called "mean"
+10) Making a dataframe with the dictionnary "mean" who contained the 11 dictionnary with the province's name and the average square m price for renting appartment
+11) Plotting the province name with their average square m price for renting appartment
+12) I made the same procedure from 7) to 11) with the dataframe who contains the selling appartments called "df_sell_appart"
+13) Calculating the number of months and number of years needed to refund the buying of an appartment per province and plotting the result
+14) Calculating the 10 most expensive municipalities where to rent a appartment by renting price
+15) Calculating The 10 most expensive municipalities by mean renting price for one appartment in Belgium
+16) Calculating the 10 most expensive municipalities by median price for one appartment in Belgium
+17) Calculating the 10 most expensive municipalities by squared m price for one appartment in Belgium
+18) Plotting 14) 15) 16) 17)
+19) The most expensive municipalities in Wallonia where to rent an appartment
+20) The top 10 most expensive cities by average square m price in wallonia are
