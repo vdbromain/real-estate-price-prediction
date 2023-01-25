@@ -7,42 +7,7 @@ Finished and not maintained anymore
 1. Data_acquisition
 `
 
-## prerequises
 
-Python 3.11.1 64-bit
-
-Firefox
-
-*Tested on Fedora release 37 (Thirty Seven) x86_64 kernel 6.0.15-300.fc37.x86_64 but it should works on most linux distro
-
-* bs4
-* gc
-* itertools
-* multiprocessing
-* numpy
-* os
-* pandas
-* psutil
-* re
-* selenium
-* shutil
-* time
-* tqdm
-* traceback
-* unidecode
-* warnings
-
-## Recommended system requirements
-
-CPU: 8core (Intel i7-10875H)
-
-RAM: 32GB
-
-GPU: /
-
-Vram: /
-
-HDD: 15GB of free space (SSD recommanded because of the large number of small files)
 
 ## What it does
 
