@@ -1,17 +1,10 @@
 # real-estate-price-prediction
 
-## Current state
+# 
 
-Finished and not maintained anymore
+# Data_acquisition Part 1
 
-1. Data_acquisition
-`
-
-
-
-## What it does
-
-this project creates a dataset from immoweb (be-fr) in the form of a csv file of this shape
+This part of the project has as goal to collect at least 10.000  creates a dataset from immoweb (be-fr) in the form of a csv file of this shape
 
 | URLS (name of the column not present in the csv) |
 | ------------------------------------------------ |
@@ -40,15 +33,17 @@ this project creates a dataset from immoweb (be-fr) in the form of a csv file of
 ### Third part
 
 1. Open and read each html file
+
 2. Exctrat the data with bs4 and transform the data into usable types (int,bool etc.)
+
 3. Make a dictionary with this structure:
-
+   
    Dictionnary:
-
+   
    * id : Inner dictionnary
-
+   
    Inner dictionnary:
-
+   
    * To rent : bool
    * To sell : bool
    * Price : int
@@ -74,7 +69,6 @@ this project creates a dataset from immoweb (be-fr) in the form of a csv file of
 1. Store the previous dictionary as a csv file of the shape below
 2. Print the average rent, the average price and a multiplicator in months to have the value of the house
 
-
 | ID     | To rent | To sell | Price  | Number of rooms | ... | zipcode | type        |
 | ------ | ------- | ------- | ------ | --------------- | --- | ------- | ----------- |
 | id 1   | False   | True    | 97000  | 3               | ... | 4000    | Appartement |
@@ -88,7 +82,6 @@ this project creates a dataset from immoweb (be-fr) in the form of a csv file of
 ## How to use it
 
 just run scraper.py and it should do the trick but your can import the file as a library and use the functions in your own project
-
 
 ---
 
@@ -157,37 +150,37 @@ Extract some data if a corresponding key is in the list
  The keys and the values are the following:
 
     - To rent / set : based of data already obtained
-
+    
     - To sell / set : based of data already obtained
-
+    
     - Price : Loyermensueldemandé or prix
-
+    
     - Number of rooms : Chambres
-
+    
     - Living Area : Surfacehabitable
-
+    
     - Fully equipped kitchen (Yes/No) : Typedecuisine
-
+    
     - Furnished (Yes/No) : meublé
-
+    
     - Open fire (Yes/No) : combiendefeuxouverts?
-
+    
     - Terrace (Yes/No) : Terrasse
-
+    
     - If yes: Area : Surfacedelaterrasse
-
+    
     - Garden (Yes/No) : Jardin
-
+    
     - If yes: Area : surfacedujardin
-
+    
     - Surface of the land : surfaceduterrain
-
+    
     - Surface area of the plot of land : / computed : surfaceduterrain
-
+    
     - Number of facades : Nombredefaçades
-
+    
     - Swimming pool (Yes/No) : Piscine
-
+    
     - State of the building (New, to be renovated, ...) : Étatdubâtiment
 
 ##### find_values_of_soups (soup : any) -> tuple[list[str] , list[str]]
@@ -227,27 +220,45 @@ Extract the data from the html files and return a dictionnary of dictionnaries w
 Dictionnary:
 
 * id : Inner dictionnary
-
- Inner dictionnary:
+  
+  Inner dictionnary:
 
 * To rent : bool
+
 * To sell : bool
+
 * Price : int
+
 * Number of rooms : int
+
 * Living Area : float
+
 * Fully equipped kitchen : bool
+
 * Furnished : bool
+
 * Open fire : bool
+
 * Terrace : bool
+
 * Area of the terrace : float
+
 * Garden : bool
+
 * Area of the garde : float
+
 * Surface of the land : float
+
 * Surface area of the plot of land : float
+
 * Number of facades : int
+
 * Swimming pool : bool
+
 * State of the building : str
+
 * zipcode : int
+
 * type : str
 
 #### Fourth part
@@ -266,7 +277,6 @@ Save the data as a csv file of this shape
 | id n-1 | None    | None    | 54000  | 5               | ... | 1000    | Maison      |
 | id n   | True    | False   | 1000   | 85              | ... | 1010    | Bugalow     |
 
-
 2. Data_analysis
 
 ## prerequises
@@ -276,6 +286,7 @@ Python 3.9.6 64-bit
 Tested on Mac Ventura 13.1
 
 Libraries required 
+
 * Pandas
 * Numpy
 * Matplotlib
@@ -312,3 +323,39 @@ Libraries required
 18) Plotting 14) 15) 16) 17)
 19) The most expensive municipalities in Wallonia where to rent an appartment
 20) The top 10 most expensive cities by average square m price in wallonia are
+
+# Modeling Part 3
+
+This part's goal is to answer my fictive client's question who could be : "How much could be the rent amount I can except for such an appartment all around Belgium ?" 
+
+Remembering in Data_Analysis Part 2, he wanted to buy an appartment somewhere in Belgium where it could as fast as possible refund it renting it, he is looking at some appartments in Belgium and is guessing how much he could expect as rent for "such an appartment".
+
+That will be our common thread for this whole part.
+
+## Preprocessing Data Part
+
+I take the data from Data_acquisition Part 1.
+
+1. From the csv's file we get at the end of Data_acquisition part, I take only the renting appartment and Rez-de-chaussée everywhere in Belgium
+
+2. I add the column "Province" because I found it was an important feature to have in my model.
+
+3. I delete all the columns I didn't want to have in my features to only havethe features I wanted. 
+   
+   - 9 Features remain : Number of rooms, Living Area, Open fire, Terrace, Garden, Swimming pool, State of the building, Province
+   
+   - 1 target : Renting price
+
+4. I looked for the outliers and found there are some. I deleted them.
+
+5. I had also to delete nearly 2288 buildings on 11072 rows because they haven't any living area mentionned. As I had their price, before deleting them, I tried to calculate their living area calculating the mean and also the median of the price per square m for each province but at the end I saw that my model's score were tremoundsly dropping so I had to delete them unfortunately.
+
+6. I also had to delete 2105 others rows on 8751 because they haven't any state of the building and I couldn't guess it, unfortunately.
+
+7. I put the non-numerical into numerical values using the pandas' function get_dummies on my features nammed "Province" and "State of the building"
+
+8. I finally get my dataframe ready to go in the modeling part with 6617 rows.
+
+## Modeling Part
+
+1. 

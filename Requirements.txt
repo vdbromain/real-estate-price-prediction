@@ -13,6 +13,7 @@ Firefox
 * numpy
 * os
 * pandas
+* sklearn
 * psutil
 * re
 * selenium
