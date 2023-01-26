@@ -103,8 +103,8 @@ My client's question was : "Where should I buy a appartment to rent it at the be
 3) Managing the empty cells in the dataset
 4) Converting the data in the correct format for them to be used later
 5) Creating 1 dataset with all the renting buildings
-6) I only take the appartments and "Rez-de-chaussée" to create a dataframe with them.
-7) For this data frame, I calculated the price per square meter and the price per bedrooms
+6) I only take the appartments and "Rez-de-chaussée" to create a dataframe
+7) I add the column Price per square meter and Price per bedrooms calculating them
 
 ## Analysing the data
 
@@ -192,8 +192,8 @@ I take the data from Data_acquisition Part 1.
    
    - with a mean score of 75%
    
-   - with a crossvalidation score of 62,50% (+- 20% of standard deviation
+   - with a crossvalidation score of 62,50% (+- 20% of standard deviation)
 
 ## Conclusions on the modeling part :
 
-GradientBoostingRegressor is the best model tested so far. But with a biggest number of buildings with their whole data completed, maybe RandomForestRegressor could also be a very good candidat for the kind of prediction I did. As I explained earlier in the modeling part, I had to delete 2288 rows (because they missed the living area) and another 2105 rows (because they missed the state of the building). I tried to calculate the missing living area but it gives me very poor results as I also explained earlier. So from 11072 rows I reached 6617 rows in my final dataframe to train and test my models. I imagine if I could have 11000 completed rows for renting price, living area, state of the building and Province I would habe better crossvalidation score and a better standard deviation because 20% is huge. If I had time to do, I would also plot each variable with the renting price to be able to see and deleted some outliers remaining.
+GradientBoostingRegressor is the best model tested so far. But with a biggest number of buildings with their whole data completed, maybe RandomForestRegressor could also be a very good candidat for the kind of prediction I did. As I explained earlier in the modeling part, I had to delete 2288 rows (because they missed the living area) and another 2105 rows (because they missed the state of the building). I tried to calculate the missing living area but it gives me very poor results as I also explained earlier. So from 11072 rows I reached 6617 rows in my final dataframe to train and test my models. I imagine if I could have 11000 completed rows for renting price, living area, state of the building and Province I would have better crossvalidation score and a better standard deviation because 20% is huge. If I had time to do, I would also plot each variable with the renting price to be able to see and deleted some outliers remaining.
