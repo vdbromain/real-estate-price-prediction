@@ -1,0 +1,55 @@
+<html>
+   <body>
+      <form action = "http://localhost:4995/receiving_data" method = "post">
+
+         <p><label for="Province">In which province is the appartment you want to rent ?</label>
+            <select name = "Province" id ="Province" required>
+            <option value = "">Selection a province</option>    
+            <option value = "Anvers">Anvers</option>
+            <option value = "Brabant wallon">Brabant wallon</option>
+            <option value = "Brabant flamand">Brabant flamand</option>
+            <option value = "Bruxelles">Bruxelles</option>
+            <option value = "Flandre orientale">Flandre orientale</option>
+            <option value = "Flandre occidentale">Flandre occidentale</option>
+            <option value = "Hainaut">Hainaut</option>
+            <option value = "Liege">Liège</option>
+            <option value = "Limbourg">Limbourg</option>
+            <option value = "Luxembourg">Luxembourg</option>
+            <option value = "Namur">Namur</option></select></p>
+
+         <p>How many bedrooms are there in your appartment ?</p>
+         <p><input type = "number" name = "nb_rooms" required/></p>
+
+         <p>How many square meters of living space are there ?</p>
+         <p><input type = "number" name = "living_area" required/></p>
+
+         <p>Is there an open fire ?</p>
+            <label><input type="radio" name="open_fire" value="1" required="required"/> Yes </label>
+            <label><input type="radio" name="open_fire" value="0" required="required" checked="checked"/> No </label>
+
+         <p>Is there a terrace ?</p>
+            <label><input type="radio" name="terrace" value="1" required="required"/> Yes </label>
+            <label><input type="radio" name="terrace" value="0" required="required" checked="checked"/> No </label>
+
+         <p>Is there a garden ?</p>
+            <label><input type="radio" name="garden" value="1" required="required"/> Yes </label>
+            <label><input type="radio" name="garden" value="0" required="required" checked="checked" /> No </label>
+
+         <p>Is there a swimming pool ?</p>
+            <label><input type="radio" name="swimming_pool" value="1" required="required"/> Yes </label>
+            <label><input type="radio" name="swimming_pool" value="0" required="required" checked="checked"/> No </label>
+
+         <p>Is the state of the building : </p>
+            <label><input type="radio" name="state" value="0" required="required" checked="checked"/> Good ? </label>
+            <label><input type="radio" name="state" value="1" required="required"/> Beautiful ? </label>
+            <label><input type="radio" name="state" value="2" required="required"/> Freshly renovated ? </label>
+            <label><input type="radio" name="state" value="3" required="required"/> To refresh ? </label>
+            <label><input type="radio" name="state" value="4" required="required"/> To restore ? </label>
+            <label><input type="radio" name="state" value="5" required="required"/> To renovate ? </label>
+
+
+
+         <p><input type = "submit" name = "Prediction" /></p>
+      </form>
+   </body>
+</html>
