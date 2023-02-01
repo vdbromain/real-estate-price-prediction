@@ -1,6 +1,6 @@
 from flask import Flask, redirect, url_for, request, render_template, flash
 import json
-#import os
+#spipimport os
 
 
 #Personnal functions
@@ -18,12 +18,16 @@ app = Flask(__name__)
 @app.route('/', methods=['GET'])
 def alive():
     if request.args.get :
-        return "Alive" 
+        return render_template("alive.html") 
 
 #Display the error if the data is wrong
 @app.route('/error/<error>')
 def error(error):
     return error
+
+@app.route('/prediction')
+def enter_data():
+    return render_template('prediction.html')
 
 @app.route('/receiving_data', methods=['POST', 'GET'])
 def receiving_data():
@@ -74,4 +78,4 @@ def receiving_data():
 #GET request returning a string to explain what the POST expect (data and format).   
 
 if __name__ == '__main__' :
-    app.run(port=4995, debug=True)
+    app.run(port=5000, debug=True, host="0.0.0.0")
