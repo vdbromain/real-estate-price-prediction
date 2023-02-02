@@ -10,12 +10,12 @@ def preprocessing(data : str ) -> list :
     #create a list with 23 elements who will be the prepro_data
     prepro_data = [0 for x in range(23)]
 
-    print(prepro_data)
+    #print(prepro_data)
 
     #Go trough the whole dict to check the values the user gives us
     for k, v in data_dict.items() :
-        print(f"k = {k}")
-        print(f"v = {v}")
+        #print(f"k = {k}")
+        #print(f"v = {v}")
         if k == "province":
             if v == "":
                 print("I go into the condition")

@@ -18,7 +18,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET'])
 def alive():
     if request.args.get :
-        return render_template("alive.html") 
+        return render_template("prediction.html") 
 
 #Display the error if the data is wrong
 @app.route('/error/<error>')
