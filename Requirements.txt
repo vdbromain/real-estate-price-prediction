@@ -25,3 +25,4 @@ Firefox
 * unidecode
 * warnings
 * matplotlib
+* flask
