@@ -1,11 +1,7 @@
-click==8.1.3
+#Created with pipreqs . to have only the libraries I used in this directory I had to add the scikit-learn because
+#didn't use it in the deployment's repo but needed to launch the model in the code !
+#With pip freeze > requirements.txt I will take every libraries I installed on my computer !
 Flask==2.2.2
-itsdangerous==2.1.2
-Jinja2==3.1.2
-joblib==1.2.0
-MarkupSafe==2.1.2
 numpy==1.24.1
 scikit-learn==1.2.1
-scipy==1.10.0
-threadpoolctl==3.1.0
-Werkzeug==2.2.2
+

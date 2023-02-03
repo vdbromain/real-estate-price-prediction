@@ -86,10 +86,6 @@ just run scraper.py and it should do the trick but your can import the file as a
 
 ---
 
-
-
-
-
 # 2. Data Analysis
 
 #### Duration : 7 days
@@ -129,8 +125,6 @@ My client's question was : "Where should I buy a appartment to rent it at the be
 19) The top 10 most expensive cities by average square m price in wallonia are
 
 ---
-
-
 
 # 3. Modeling
 
@@ -197,3 +191,51 @@ I take the data from Data_acquisition Part 1.
 ## Conclusions on the modeling part :
 
 GradientBoostingRegressor is the best model tested so far. But with a biggest number of buildings with their whole data completed, maybe RandomForestRegressor could also be a very good candidat for the kind of prediction I did. As I explained earlier in the modeling part, I had to delete 2288 rows (because they missed the living area) and another 2105 rows (because they missed the state of the building). I tried to calculate the missing living area but it gives me very poor results as I also explained earlier. So from 11072 rows I reached 6617 rows in my final dataframe to train and test my models. I imagine if I could have 11000 completed rows for renting price, living area, state of the building and Province I would have better crossvalidation score and a better standard deviation because 20% is huge. If I had time to do, I would also plot each variable with the renting price to be able to see and deleted some outliers remaining.
+
+
+
+# 4. Deployment
+
+#### Duration : 6 days
+
+In this part, I'll give the access of my predictive model for the renting of an appartment in Belgium to my client for him to predict the prices of the appartment he would like to buy. 
+
+## Creating an API :
+
+#### Building a form's example to receive the datas
+
+Route used : /prediction
+
+I created a very simple html's form to invite my client to give me the appartment's datas he wants to predict the renting price.
+
+#### Collecting and preprocessing datas the user give me
+
+###### 1) Collecting
+
+Route used : /receiving_data (in the <form action=)
+
+Method used : POST
+
+I collect the data the user give to the html's form with a "POST" method in the route : /receiving_data
+
+###### 2) Preprocessing
+
+I take the collected datas to convert them in a good format for them to fit what my model needs to make a predicted renting price
+
+<u>Possible improvement</u> : I would like have liked to check what the user give me as datas and to tell him if there was an error with what he entered but I skipped that part for a timing reason and decided to "force" the user to fill in the html file with only numerical values for the one who need numerical values and trough the html asking the required value to be filled in.
+
+#### Modeling the user's data
+
+I just enter the preprocessed datas in the model to receive the prediction price in the end.
+
+## Creating a Dockerfile
+
+You'll find my Dockerfile in the "/deployment" repo which I used in the next step. I manage to create a image and a container working locally but I didn't find a free service who allow me to deploy the docker image or container directly on their service so I choose deploying with my Dockerfile on render.com
+
+## Deploying the API on render.com
+
+As render doesn't accept a docker container to be deployed, I used my Dockerfile trough render.com to deploy the API online.
+
+Here is the address : https://belgian-appart-renting-price-prediction.onrender.com/
+
+It takes some time to load because it's deployed on a free service but it works !!!
