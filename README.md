@@ -1,12 +1,28 @@
-# real-estate-price-prediction
+<div align="center">
+ <h1>Real Estate Price Prediction</h1>
+</div>
 
-# 
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![Jupyter Notebook](https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white)
 
-# 1. Data_acquisition
+# 1. Data Acquisition
 
 #### Duration : 5 days
 
-This part of the project has as goal to collect at least 10.000 buildings property with as many numerical values as possible to be able to analyze them more easily in the next steps of this projetc. We decided to scrap the date we can on https://www.immoweb.be/fr/annonce/. As final result, we creates a dataset with all the data we scraped stored in a csv file.
+<div align="justify">
+This part of the project was a team project, we had as goal to collect at 
+least 10.000 buildings properties with as many numerical values as possible to be able to analyze 
+them more easily in the next steps of this project. 
+We decided to scrap the date we can on 
+<a href="https://www.immoweb.be/fr/annonce/">ImmoWeb</a>. 
+As final result, we created a dataset with all the data we scraped stored 
+in a csv file.
+</div>
 
 ### Collecting the urls from each page
 
@@ -90,39 +106,42 @@ just run scraper.py and it should do the trick but your can import the file as a
 
 #### Duration : 7 days
 
-My client's question was : "Where should I buy a appartment to rent it at the best price afterwards ?" 
+<div align="justify">
+My client's question was : "Where should I buy an appartment to rent it at the best price afterwards ?" 
+</div>
 
-## Cleaning the data
+## Data Cleaning
 
-1) Importing the dataset without blankspaces before or after the data
-2) Droping the duplicates in the dataset
-3) Managing the empty cells in the dataset
-4) Converting the data in the correct format for them to be used later
-5) Creating 1 dataset with all the renting buildings
-6) I only take the appartments and "Rez-de-chaussée" to create a dataframe
-7) I add the column Price per square meter and Price per bedrooms calculating them
+<div align="justify">
+I managed the duplicates and the NaN values. I also converted the datas 
+who needed it to the right format. After that, I selected only the 
+renting appartements and "Rez-de-chaussée" to create a dataframe. 
+And finally, I calculated and added the columns "Price per square meter" 
+and "Price per bedrooms".
 
-## Analysing the data
+</div>
 
-1) Creating a function called "how_many_columns_rows_df" to give us the number of rows and columns of a given dataframe
-2) Calculating the correlations between the living area, the number of rooms and the price for renting appartments.
-3) Plotting each of those correlations for each dataset to see the outliers and deleting them
-4) Defining a function to extract a range of zipcode given to this function from one defined dataframe with a give column name in which the zipcode are. This function is called "taking_zip_code_desired_from_df". It returns a new dataframe with the given zipcode in it.
-5) Defining the function to calcul the min, max, mean for one province to rent (by default) or to buy. This function is called "min_max_mean_df". It returns a dictionnary with the province's name and the mean value for the defined column name.
-6) Using the 2 functions above ("taking_zip_code_desired_from_df" and "min_max_mean_df" to create a dataframe for each belgian province and calculating for each of them using "min_max_mean_df" function the min, max and mean.
-7) Plotting the correlation between Price by square m and the renting price for renting appartment in each belgian province to be able to delete the "strange" (extrem) values for some province.
-8) Collecting the average square m price for renting appartment with the name's province in a dictionnary for each province and store this little dict in a main one called "mean"
-9) Making a dataframe with the dictionnary "mean" who contained the 11 dictionnary with the province's name and the average square m price for renting appartment
-10) Plotting the province name with their average square m price for renting appartment
-11) I made the same procedure from 7) to 11) with the dataframe who contains the selling appartments called "df_sell_appart"
-12) Calculating the number of months and number of years needed to refund the buying of an appartment per province and plotting the result
-13) Calculating the 10 most expensive municipalities where to rent a appartment by renting price
-14) Calculating The 10 most expensive municipalities by mean renting price for one appartment in Belgium
-15) Calculating the 10 most expensive municipalities by median price for one appartment in Belgium
-16) Calculating the 10 most expensive municipalities by squared m price for one appartment in Belgium
-17) Plotting 14) 15) 16) 17)
-18) The most expensive municipalities in Wallonia where to rent an appartment
-19) The top 10 most expensive cities by average square m price in wallonia are
+## Data Analysis
+
+<div align="justify">
+During my analysis, I deleted the outliers. As I need them, I added the 
+Province column. I plot the average renting and selling prices for 
+appartments per Province.
+</div>
+
+Here is the graph for the renting prices :
+
+![Mean renting price](Visuals/Average%20Renting%20Price%20Appartment%20Belgium%20Province%20Units.png)
+
+Here is the graph for the selling prices :
+
+![Mean renting price](/Users/cecilewinand/Desktop/BeCode_Projects/real-estate-price-prediction-main/Visuals/Average%20selling%20price%20Appart%20Belgium%20Province%20Units.png)
+
+And finally, I combined the mean renting price per province with the mean selling price to calculate the number of years required to refund the purchase and I plotted it.
+
+![Mean renting price](Visuals/Number%20of%20years%20to%20refund%20my%20buying.png)
+
+In conclusion of this phase, I could recommend my client to buy in Hainaut or in Brussels if he want to have his refund before 20 years.
 
 ---
 
@@ -130,15 +149,19 @@ My client's question was : "Where should I buy a appartment to rent it at the be
 
 #### Duration : 7 days
 
-This part's goal is to answer my fictive client's question who could be : "How much could be the rent amount I can except for such an appartment all around Belgium ?" 
+This part's goal is to answer my fictive client's question who could be : 
 
-Remembering in Data_Analysis Part 2, he wanted to buy an appartment somewhere in Belgium where it could as fast as possible refund it renting it, he is looking at some appartments in Belgium and is guessing how much he could expect as rent for "such an appartment".
+###### "How much could be the rent amount I can expect for such an appartment all around Belgium ?"
+
+<div align="justify">
+Remembering in Data Analysis part, he wanted to buy an appartment somewhere in Belgium where it could as fast as possible refund it renting it, he is looking at some appartments in Belgium and is guessing how much he could expect as rent for "such an appartment".
+</div>
 
 That will be our common thread for this whole part.
 
-## Preprocessing Data Part
+## 1) Preprocessing Data
 
-I take the data from Data_acquisition Part 1.
+I take the data from Data Acquisition part.
 
 1. From the csv's file we get at the end of Data_acquisition part, I take only the renting appartment and Rez-de-chaussée everywhere in Belgium
 
@@ -146,9 +169,9 @@ I take the data from Data_acquisition Part 1.
 
 3. I delete all the columns I didn't want to have in my features to only havethe features I wanted. 
    
-   - 9 Features remain : Number of rooms, Living Area, Open fire, Terrace, Garden, Swimming pool, State of the building, Province
+   - ###### 9 Features remain : Number of rooms, Living Area, Open fire, Terrace, Garden, Swimming pool, State of the building, Province
    
-   - 1 target : Renting price
+   - ###### 1 target : Renting price
 
 4. I looked for the outliers and found there are some. I deleted them.
 
@@ -190,15 +213,17 @@ I take the data from Data_acquisition Part 1.
 
 ## Conclusions on the modeling part :
 
+<div align="justify">
 GradientBoostingRegressor is the best model tested so far. But with a biggest number of buildings with their whole data completed, maybe RandomForestRegressor could also be a very good candidat for the kind of prediction I did. As I explained earlier in the modeling part, I had to delete 2288 rows (because they missed the living area) and another 2105 rows (because they missed the state of the building). I tried to calculate the missing living area but it gives me very poor results as I also explained earlier. So from 11072 rows I reached 6617 rows in my final dataframe to train and test my models. I imagine if I could have 11000 completed rows for renting price, living area, state of the building and Province I would have better crossvalidation score and a better standard deviation because 20% is huge. If I had time to do, I would also plot each variable with the renting price to be able to see and deleted some outliers remaining.
-
-
+</div>
 
 # 4. Deployment
 
 #### Duration : 6 days
 
+<div align="justify">
 In this part, I'll give the access of my predictive model for the renting of an appartment in Belgium to my client for him to predict the prices of the appartment he would like to buy. 
+</div>
 
 ## Creating an API :
 
