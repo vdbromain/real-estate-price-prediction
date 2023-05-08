@@ -135,7 +135,7 @@ Here is the graph for the renting prices :
 
 Here is the graph for the selling prices :
 
-![Mean renting price](/Users/cecilewinand/Desktop/BeCode_Projects/real-estate-price-prediction-main/Visuals/Average%20selling%20price%20Appart%20Belgium%20Province%20Units.png)
+![Mean renting price](Visuals/Average%20selling%20price%20Appart%20Belgium%20Province%20Units.png)
 
 And finally, I combined the mean renting price per province with the mean selling price to calculate the number of years required to refund the purchase and I plotted it.
 
