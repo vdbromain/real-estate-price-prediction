@@ -32,7 +32,7 @@ in a csv file.
 4. Store the freshly obtained urls into a csv file of this shape :
 
 | URLS (name of the column not present in the csv) |
-| ------------------------------------------------ |
+|:------------------------------------------------ |
 | url 1                                            |
 | url 2                                            |
 | ...                                              |
@@ -131,17 +131,15 @@ appartments per Province.
 
 Here is the graph for the renting prices :
 
-![Mean renting price](Visuals/Average%20Renting%20Price%20Appartment%20Belgium%20Province%20Units.png)
+<img title="" src="Visuals/Average%20Renting%20Price%20Appartment%20Belgium%20Province%20Units.png" alt="Mean renting price" data-align="center">
 
 Here is the graph for the selling prices :
 
-![Mean renting price](Visuals/Average%20selling%20price%20Appart%20Belgium%20Province%20Units.png)
+<img src="Visuals/Average%20selling%20price%20Appart%20Belgium%20Province%20Units.png" title="" alt="Mean renting price" data-align="center">
 
 And finally, I combined the mean renting price per province with the mean selling price to calculate the number of years required to refund the purchase and I plotted it.
 
-![Mean renting price](Visuals/Number%20of%20years%20to%20refund%20my%20buying.png)
-
-
+<img src="Visuals/Number%20of%20years%20to%20refund%20my%20buying.png" title="" alt="Mean renting price" data-align="center">
 
 In conclusion of this phase, I could recommend my client to buy in Hainaut or in Brussels if he want to have his refund before 20 years.
 
